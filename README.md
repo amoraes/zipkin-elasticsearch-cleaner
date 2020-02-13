@@ -6,7 +6,9 @@ any trace and span data older than the defined threshold.
 ## How to use
 
 Set the following environment variables:
-* ES_URL
+* ES_HOST_DOMAIN
+* ES_HOST_PORT
+* USE_SSL (True/False)
 * THRESHOLD
 * TIME_UNIT
 

@@ -9,7 +9,7 @@ client:
   client_key:
   ssl_no_validate: False
   http_auth:
-  timeout: 30000000
+  timeout: 86400
   master_only: False
 
 logging:

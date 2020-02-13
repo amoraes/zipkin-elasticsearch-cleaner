@@ -23,8 +23,9 @@ FROM alpine:3.9
 RUN /bin/sh -c "apk add --no-cache py-pip"
 RUN /bin/sh -c "pip install elasticsearch-curator"
 RUN /bin/sh -c "apk add --no-cache dos2unix"
+RUN /bin/sh -c "apk add --no-cache sed"
 COPY entrypoint.sh entrypoint.sh
-COPY actions.yml actions.yml
-COPY config.yml config.yml
+COPY actions.template.yml actions.template.yml
+COPY config.template.yml config.template.yml
 RUN dos2unix /entrypoint.sh
 ENTRYPOINT ["/bin/sh", "entrypoint.sh"]

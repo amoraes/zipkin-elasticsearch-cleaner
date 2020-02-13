@@ -7,5 +7,11 @@
 # is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
 # or implied. See the License for the specific language governing permissions and limitations under
 # the License.
-export FILTER='[{"filtertype":"age","source":"name","timestring":"%Y-%m-%d","direction":"older","unit":"'$TIME_UNIT'","unit_count":'$THRESHOLD'}]'
-curator_cli --host $ES_URL delete_indices --filter_list $FILTER
+sed "s/ES_HOST_DOMAIN/${ES_HOST_DOMAIN}/g; s/ES_HOST_PORT/${ES_HOST_PORT}/g; s/USE_SSL/${USE_SSL}/g" config.template.yml > config.yml
+sed "s/TIME_UNIT/$TIME_UNIT/g; s/THRESHOLD/$THRESHOLD/g" actions.template.yml > actions.yml
+echo "Configuration to run..."
+cat config.yml
+echo "Actions to run..."
+cat actions.yml
+echo "Starting curator..."
+curator --dry-run --config config.yml actions.yml
