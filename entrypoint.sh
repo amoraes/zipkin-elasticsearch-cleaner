@@ -14,4 +14,4 @@ cat config.yml
 echo "Actions to run..."
 cat actions.yml
 echo "Starting curator..."
-curator --dry-run --config config.yml actions.yml
+curator --config config.yml actions.yml
