@@ -24,5 +24,7 @@ RUN /bin/sh -c "apk add --no-cache py-pip"
 RUN /bin/sh -c "pip install elasticsearch-curator"
 RUN /bin/sh -c "apk add --no-cache dos2unix"
 COPY entrypoint.sh entrypoint.sh
+COPY actions.yml actions.yml
+COPY config.yml config.yml
 RUN dos2unix /entrypoint.sh
 ENTRYPOINT ["/bin/sh", "entrypoint.sh"]

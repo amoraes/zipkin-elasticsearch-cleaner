@@ -1,0 +1,19 @@
+client:
+  hosts:
+    - ES_HOST_DOMAIN
+  port: ES_HOST_PORT
+  url_prefix:
+  use_ssl: USE_SSL
+  certificate:
+  client_cert:
+  client_key:
+  ssl_no_validate: False
+  http_auth:
+  timeout: 30000000
+  master_only: False
+
+logging:
+  loglevel: INFO
+  logfile:
+  logformat: default
+  blacklist: ['elasticsearch', 'urllib3']
